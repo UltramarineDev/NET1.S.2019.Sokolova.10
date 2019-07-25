@@ -39,13 +39,18 @@ namespace NET.S._2019.Sokolova._10
 
             for(int i = 0; i < source.Length; i++)
             {
-                if(predicate.IsPredicate(source[i]))
-                {
-                    resultList.Add(source[i]);
-                }
+                //if(predicate.IsPredicate(source[i]))
+                //{
+                //    resultList.Add(source[i]);
+                //}
             }
 
             return resultList.ToArray();
         }
+
+        //public IEnumerable<int> ConvertToNumbers(string[] inputArray, int p)
+        //{
+
+        //}
     }
 }

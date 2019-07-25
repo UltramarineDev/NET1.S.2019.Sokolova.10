@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NET.S._2019.Sokolova._10.Interfaces
+namespace NET.S._2019.Sokolova._10
 {
-    class IPredicate
+    public class TransferNumbers
     {
+      
     }
 }
