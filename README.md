@@ -1,4 +1,5 @@
-##Tasks
+## Tasks
+
 :heavy_check_mark: 1. Преобразовать методы расширения класса ArrayExtension Day 7 в обобщенно-типизированные методы
 ```
 public static TSource[] Filter(this TSource[] source, IPredicate predicate) { }
