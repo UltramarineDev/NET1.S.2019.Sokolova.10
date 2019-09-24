@@ -1,19 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CBA5BCCC-AA8F-406E-8853-C459A4C8C796}</ProjectGuid>
+    <ProjectGuid>{5A048B47-CC8F-4897-A12B-CBE5B2AB454F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ArrayManipulations.Tests</RootNamespace>
-    <AssemblyName>ArrayManipulations.Tests</AssemblyName>
+    <RootNamespace>ArrayManipulations</RootNamespace>
+    <AssemblyName>ArrayManipulations</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,23 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArrayExtensionTests.cs" />
+    <Compile Include="ArrayExtension.cs" />
+    <Compile Include="Interfaces\IPredicate.cs" />
+    <Compile Include="Interfaces\ITransformer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ArrayManipulations\ArrayManipulations.csproj">
-      <Project>{5a048b47-cc8f-4897-a12b-cbe5b2ab454f}</Project>
-      <Name>ArrayManipulations</Name>
-    </ProjectReference>
+    <Compile Include="Test-cases\Filter\EvenOrOdd.cs" />
+    <Compile Include="Test-cases\Filter\FilterArrayByKey.cs" />
+    <Compile Include="Test-cases\Filter\Palindrome.cs" />
+    <Compile Include="Test-cases\Sort\NumberOfOccurrances.cs" />
+    <Compile Include="Test-cases\Sort\SortingByLengthComparator.cs" />
+    <Compile Include="Test-cases\Sort\SortingByLengthDescendingComparator.cs" />
+    <Compile Include="Test-cases\Sort\SortingByOccurrenceComparator.cs" />
+    <Compile Include="Test-cases\Sort\SortingByOccurrenceDescendingComparator.cs" />
+    <Compile Include="Test-cases\Transform\AdapterIEEE.cs" />
+    <Compile Include="Test-cases\Transform\TransformatorEng.cs" />
+    <Compile Include="Test-cases\Transform\TransformatorRu.cs" />
+    <Compile Include="Test-cases\Transform\Transformer.cs" />
+    <Compile Include="Test-cases\Transform\TransformerIEEE.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
-  </Target>
 </Project>

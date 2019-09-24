@@ -1,6 +1,6 @@
-﻿using NET.S._2019.Sokolova._10;
-using NET.S._2019.Sokolova._10.Test_cases.Filter;
-using NET.S._2019.Sokolova._10.Test_cases.Transform;
+﻿using ArrayManipulations;
+using ArrayManipulations.Test_cases.Filter;
+using ArrayManipulations.Test_cases.Transform;
 using NUnit.Framework;
 using System;
 using Test_cases.Sort;
