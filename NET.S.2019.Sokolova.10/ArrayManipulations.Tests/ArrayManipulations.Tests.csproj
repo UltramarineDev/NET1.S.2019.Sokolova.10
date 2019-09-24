@@ -1,16 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A090B3CE-178A-4890-A3BE-AA014EA12EC3}</ProjectGuid>
+    <ProjectGuid>{CBA5BCCC-AA8F-406E-8853-C459A4C8C796}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NET.S._2019.Sokolova._10</RootNamespace>
-    <AssemblyName>NET.S.2019.Sokolova.10</AssemblyName>
+    <RootNamespace>ArrayManipulations.Tests</RootNamespace>
+    <AssemblyName>ArrayManipulations.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,24 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArrayExtension.cs" />
-    <Compile Include="Interfaces\IPredicate.cs" />
-    <Compile Include="Interfaces\ITransformer.cs" />
+    <Compile Include="ArrayExtensionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test-cases\Filter\EvenOrOdd.cs" />
-    <Compile Include="Test-cases\Filter\FilterArrayByKey.cs" />
-    <Compile Include="Test-cases\Filter\Palindrome.cs" />
-    <Compile Include="Test-cases\Sort\NumberOfOccurrances.cs" />
-    <Compile Include="Test-cases\Sort\SortingByLengthComparator.cs" />
-    <Compile Include="Test-cases\Sort\SortingByLengthDescendingComparator.cs" />
-    <Compile Include="Test-cases\Sort\SortingByOccurrenceComparator.cs" />
-    <Compile Include="Test-cases\Sort\SortingByOccurrenceDescendingComparator.cs" />
-    <Compile Include="Test-cases\Transform\AdapterIEEE.cs" />
-    <Compile Include="Test-cases\Transform\TransformatorEng.cs" />
-    <Compile Include="Test-cases\Transform\TransformatorRu.cs" />
-    <Compile Include="Test-cases\Transform\Transformer.cs" />
-    <Compile Include="Test-cases\Transform\TransformerIEEE.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NET.S.2019.Sokolova.10\ArrayManipulations.csproj">
+      <Project>{a090b3ce-178a-4890-a3be-aa014ea12ec3}</Project>
+      <Name>ArrayManipulations</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
+  </Target>
 </Project>

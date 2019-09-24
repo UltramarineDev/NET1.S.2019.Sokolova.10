@@ -3,8 +3,23 @@ using System.Collections.Generic;
 
 namespace IntegerConverter
 {
+    /// <summary>
+    /// Custom converter class
+    /// </summary>
     public static class CustomConverter
     {
+        /// <summary>
+        /// Converts input string to decimal integer number.
+        /// </summary>
+        /// <param name="inputSet">The input set.</param>
+        /// <param name="p">Numeral system</param>
+        /// <returns>array of numbers</returns>
+        /// <exception cref="ArgumentNullException">Occurs if input array is null</exception>
+        /// <exception cref="ArgumentException">
+        /// Occurs if input array is empty
+        /// or
+        /// Invalid numeral system
+        /// </exception>
         public static int[] ConvertToInt(string[] inputSet, int p)
         {
             if (inputSet == null)
@@ -17,7 +32,7 @@ namespace IntegerConverter
                 throw new ArgumentException("Input array is empty!", nameof(inputSet));
             }
 
-            if(p < 2 || p > 16)
+            if (p < 2 || p > 16)
             {
                 throw new ArgumentException("Invalid numeral system!", nameof(p));
             }
